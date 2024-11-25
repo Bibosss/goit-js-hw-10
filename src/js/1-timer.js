@@ -61,10 +61,11 @@ function startTimer() {
         const timeDifference = userSelectedDate - Date.now();
 
         if (timeDifference <= 0) {
-            clearInterval(setInterval);
+            clearInterval(intervalId);  
             updateTimerDisplay({ days: 0, hours: 0, minutes: 0, seconds: 0 });
             datePicker.disabled = false;
             startButton.disabled = true;
+            return;
         };
         const time = convertMs(timeDifference);
         updateTimerDisplay(time);
